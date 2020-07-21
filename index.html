@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase CRUD</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>ToDo App</h1>
+
+    <!-- ADD TASK -->
+    <form id="task-form">
+      <div class="form-group">
+        <input type="text" id="task-title" placeholder="Todoを入力して下さい">
+
+        <button id="btn-task-form">
+        追加
+        </button>
+      </div>
+    </form>
+
+    <!-- Tasks List -->
+    <h2>ToDo List</h2>
+    <div id="tasks-container"></div>
+
+  </div>
+
+  <!-- FIREBASE -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
+
+
+  <script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyBp8O9BRyppCI2X4JLMXydpUGdRUh530EY",
+			authDomain: "javascript-24327.firebaseapp.com",
+			databaseURL: "https://javascript-24327.firebaseio.com",
+			projectId: "javascript-24327",
+			storageBucket: "javascript-24327.appspot.com",
+			messagingSenderId: "40783009230",
+			appId: "1:40783009230:web:c4b716d45adb579746c79f",
+			measurementId: "G-Q62J91GM01"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- CUSTOM CODE -->
+  <!-- <script src="index.js"></script> -->
+  <script src="firebase.js"></script>
+</body>
+
+</html>
