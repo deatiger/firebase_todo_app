@@ -1,17 +1,17 @@
-
-const taskForm = document.getElementById('task-form');
+const taskForm = document.getElementById('todo-form');
 
 taskForm.addEventListener('submit', e =>{
 	e.preventDefault();
 	console.log("submit")
-  // store user value
-	var item    = taskForm["task-title"];
-	// create a text node from the user input
-	var text    = document.createTextNode(item.value)
-	// create a li tag
-	var newItem = document.createElement('li')
-	// add the user input to the li tag
-	newItem.appendChild(text)
-	// append the li to the html todoList id tag
-	document.getElementById('tasks-container').appendChild(newItem)
+	// store user value
+	const item = taskForm["todo-title"];
+	const todoName = item.value;
+
+	// create list item to be able to check
+	const newItem = `<li class="list-item">
+						<input type="checkbox" id="todo-${todoName}" class="checkbox">
+						<label for="todo-${todoName}">${todoName}</label>
+					 </li>`
+
+	document.getElementById('todo-container').insertAdjacentHTML('beforeend', newItem)
 })
