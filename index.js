@@ -1,17 +1,37 @@
-const taskForm = document.getElementById('todo-form');
+const todoForm = document.getElementById('todo-form');
+const todoContainer = document.getElementById('todo-container');
+let index = 0;
 
-taskForm.addEventListener('submit', e =>{
+// TODOアイテムを削除する関数
+const deleteTodo = (deletedIndex) => {
+	const deletedItem = document.getElementById(`item-${deletedIndex}`);
+	todoContainer.removeChild(deletedItem)
+	// deletedItem.textContent = null
+	// ↑でもOK
+};
+
+// 追加ボタンをクリックしたら実行されるイベントリスナーを設定
+todoForm.addEventListener('submit', e =>{
+	// submitイベントのデフォルト動作（ページリロードなど）を実行しないよう設定
 	e.preventDefault();
-	console.log("submit")
-	// store user value
-	const item = taskForm["todo-title"];
-	const todoName = item.value;
 
-	// create list item to be able to check
-	const newItem = `<li class="list-item">
-						<input type="checkbox" id="todo-${todoName}" class="checkbox">
-						<label for="todo-${todoName}">${todoName}</label>
+	// 入力フォーム(inputタグ)に入力された値を取得
+	const addedTodo = todoForm["todo-title"];
+	const todoName = addedTodo.value;
+
+	// 追加するTODOアイテムのHTMLを生成する
+	const newItem = `<li class="list-item" id="item-${index}">
+						<input type="checkbox" id="todo-${index}" class="checkbox">
+						<label for="todo-${index}">${todoName}</label>
+						<button role="button" onclick="deleteTodo(${index})">完了</button>
 					 </li>`
 
-	document.getElementById('todo-container').insertAdjacentHTML('beforeend', newItem)
-})
+	// リストにTODOアイテムを追加する
+	todoContainer.insertAdjacentHTML('beforeend', newItem)
+
+	// 入力フォーム(inputタグ)に入力された値を初期化する
+	addedTodo.value = "";
+
+	// インデックスを1増やす
+	index++;
+});
