@@ -13,19 +13,19 @@
     <h1>ToDo App</h1>
 
     <!-- ADD TASK -->
-    <form id="task-form">
+    <form id="todo-form">
       <div class="form-group">
-        <input type="text" id="task-title" placeholder="Todoを入力して下さい">
+        <input type="text" id="todo-title" placeholder="Todoを入力して下さい">
 
-        <button id="btn-task-form">
-        追加
+        <button id="btn-todo-form">
+          追加
         </button>
       </div>
     </form>
 
     <!-- Tasks List -->
     <h2>ToDo List</h2>
-    <div id="tasks-container"></div>
+    <div class="list" id="todo-container"></div>
 
   </div>
 
@@ -39,24 +39,24 @@
 
 
   <script>
-		// Your web app's Firebase configuration
-		var firebaseConfig = {
-			apiKey: "AIzaSyBp8O9BRyppCI2X4JLMXydpUGdRUh530EY",
-			authDomain: "javascript-24327.firebaseapp.com",
-			databaseURL: "https://javascript-24327.firebaseio.com",
-			projectId: "javascript-24327",
-			storageBucket: "javascript-24327.appspot.com",
-			messagingSenderId: "40783009230",
-			appId: "1:40783009230:web:c4b716d45adb579746c79f",
-			measurementId: "G-Q62J91GM01"
-		};
-		// Initialize Firebase
-		firebase.initializeApp(firebaseConfig);
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+          apiKey: "AIzaSyBp8O9BRyppCI2X4JLMXydpUGdRUh530EY",
+          authDomain: "javascript-24327.firebaseapp.com",
+          databaseURL: "https://javascript-24327.firebaseio.com",
+          projectId: "javascript-24327",
+          storageBucket: "javascript-24327.appspot.com",
+          messagingSenderId: "40783009230",
+          appId: "1:40783009230:web:c4b716d45adb579746c79f",
+          measurementId: "G-Q62J91GM01"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
   </script>
 
   <!-- CUSTOM CODE -->
-  <!-- <script src="index.js"></script> -->
-  <script src="firebase.js"></script>
+  <script src="index.js"></script>
+  <!--  <script src="firebase.js"></script>-->
 </body>
 
 </html>

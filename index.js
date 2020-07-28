@@ -1,17 +1,37 @@
+const todoForm = document.getElementById('todo-form');
+const todoContainer = document.getElementById('todo-container');
+let index = 0;
 
-const taskForm = document.getElementById('task-form');
+// TODOアイテムを削除する関数
+const deleteTodo = (deletedIndex) => {
+	const deletedItem = document.getElementById(`item-${deletedIndex}`);
+	todoContainer.removeChild(deletedItem)
+	// deletedItem.textContent = null
+	// ↑でもOK
+};
 
-taskForm.addEventListener('submit', e =>{
+// 追加ボタンをクリックしたら実行されるイベントリスナーを設定
+todoForm.addEventListener('submit', e =>{
+	// submitイベントのデフォルト動作（ページリロードなど）を実行しないよう設定
 	e.preventDefault();
-	console.log("submit")
-  // store user value
-	var item    = taskForm["task-title"];
-	// create a text node from the user input
-	var text    = document.createTextNode(item.value)
-	// create a li tag
-	var newItem = document.createElement('li')
-	// add the user input to the li tag
-	newItem.appendChild(text)
-	// append the li to the html todoList id tag
-	document.getElementById('tasks-container').appendChild(newItem)
-})
+
+	// 入力フォーム(inputタグ)に入力された値を取得
+	const addedTodo = todoForm["todo-title"];
+	const todoName = addedTodo.value;
+
+	// 追加するTODOアイテムのHTMLを生成する
+	const newItem = `<li class="list-item" id="item-${index}">
+						<input type="checkbox" id="todo-${index}" class="checkbox">
+						<label for="todo-${index}">${todoName}</label>
+						<button role="button" onclick="deleteTodo(${index})">完了</button>
+					 </li>`
+
+	// リストにTODOアイテムを追加する
+	todoContainer.insertAdjacentHTML('beforeend', newItem)
+
+	// 入力フォーム(inputタグ)に入力された値を初期化する
+	addedTodo.value = "";
+
+	// インデックスを1増やす
+	index++;
+});

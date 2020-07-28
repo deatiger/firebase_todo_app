@@ -6,7 +6,7 @@ body {background-color: #90ee90; }
     margin-right: auto;
     align-items: center;
     text-align: center;
-  }
+}
 
 
 h1 {
@@ -26,3 +26,16 @@ h2 {
     font-family: "Comic Sans MS";
     background-color:#dc3545;
 }
+
+.list {
+    list-style: none;  /* リストの・を消す */
+    margin: 0 auto;    /* div要素を左右中央寄せ */
+    max-width: 320px;  /* 最大幅を設定 */
+    text-align: left;  /* 左寄せにする */
+}
+
+.list-item > input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+}
+
+
