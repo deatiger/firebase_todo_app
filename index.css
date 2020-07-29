@@ -28,14 +28,7 @@ h2 {
 }
 
 .list {
-    list-style: none;  /* リストの・を消す */
     margin: 0 auto;    /* div要素を左右中央寄せ */
     max-width: 320px;  /* 最大幅を設定 */
     text-align: left;  /* 左寄せにする */
 }
-
-.list-item > input[type="checkbox"]:checked + label {
-    text-decoration: line-through;
-}
-
-

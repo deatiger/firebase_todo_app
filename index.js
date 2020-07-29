@@ -6,8 +6,6 @@ let index = 0;
 const deleteTodo = (deletedIndex) => {
 	const deletedItem = document.getElementById(`item-${deletedIndex}`);
 	todoContainer.removeChild(deletedItem)
-	// deletedItem.textContent = null
-	// ↑でもOK
 };
 
 // 追加ボタンをクリックしたら実行されるイベントリスナーを設定
@@ -21,7 +19,6 @@ todoForm.addEventListener('submit', e =>{
 
 	// 追加するTODOアイテムのHTMLを生成する
 	const newItem = `<li class="list-item" id="item-${index}">
-						<input type="checkbox" id="todo-${index}" class="checkbox">
 						<label for="todo-${index}">${todoName}</label>
 						<button role="button" onclick="deleteTodo(${index})">完了</button>
 					 </li>`
